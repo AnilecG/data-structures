@@ -14,13 +14,23 @@ class SinglyLinkedList
 {
     public:
       SinglyLinkedList() : head(nullptr) {}    
+
+      // Inserts a node at the beginning of the list
       void insertAtBeginning(int value);
+
+      // Appends a node at the end of the list
       void append(int value);
-      // insert new element before index-th node
+
+      // Insert a node at the given index
       void insertAtIndex(int index, int value);
 
-    //   void deleteNodeAtIndex(int index);
-    //   Node* searchValue();
+      // Deletes a node at the given index
+      void deleteAtIndex(int index);
+
+      // Returns the first encountered node with the given value
+      Node* searchValue(int value);
+
+      // Travers a list and prints nodes' values
       void traverseList();
 
     private:
