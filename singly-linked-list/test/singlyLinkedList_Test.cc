@@ -16,13 +16,11 @@ class SinglyLinedListTest : public ::testing::Test
     SinglyLinkedList sll;
 };
 
-// List: 
 TEST_F(SinglyLinedListTest, emptyList)
 {
     ASSERT_EQ(sll.getListSize(), 0);
 }
 
-// List: 1
 TEST_F(SinglyLinedListTest, insertingAtBeginning)
 {
     sll.insertAtBeginning(1);
@@ -30,7 +28,6 @@ TEST_F(SinglyLinedListTest, insertingAtBeginning)
     ASSERT_EQ(sll.getValueAtIndex(0), 1);
 }
 
-// List: 1 2
 TEST_F(SinglyLinedListTest, insertingAtEnd)
 {
     sll.insertAtEnd(1);
@@ -108,6 +105,8 @@ TEST_F(SinglyLinedListTest, searchValue)
     sll.insertAtBeginning(3);
     auto node = sll.searchValue(2);
     ASSERT_EQ(node->value, 2);  
+    node = sll.searchValue(10);
+    ASSERT_EQ(node, nullptr);
 }
 
 TEST_F(SinglyLinedListTest, listSize)
@@ -116,5 +115,18 @@ TEST_F(SinglyLinedListTest, listSize)
     sll.insertAtBeginning(1);
     ASSERT_EQ(sll.getListSize(), 1); 
 }
+
+TEST_F(SinglyLinedListTest, removeDuplicates)
+{
+    sll.insertAtBeginning(1);
+    sll.insertAtBeginning(2);
+    sll.insertAtBeginning(3);
+    sll.insertAtBeginning(3);
+    sll.insertAtBeginning(1);
+    ASSERT_EQ(sll.getListSize(), 5); 
+    sll.removeDuplicates();
+    ASSERT_EQ(sll.getListSize(), 3);    
+}
+
 } //namespace
 } //singlyLinkedList

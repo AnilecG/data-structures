@@ -39,6 +39,9 @@ class SinglyLinkedList
       //  Returns the size of the list
       int getListSize();
 
+      // Removes duplicated values
+      void removeDuplicates();
+      
     private:
       Node* head;
 };

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <unordered_set>
 
 #include "singlyLinkedList.hh"
 
@@ -146,6 +147,29 @@ int SinglyLinkedList::getListSize()
         size++;
     }    
     return size;
+}
+
+void SinglyLinkedList::removeDuplicates()
+{
+    std::unordered_set<int> hashTable;
+    Node* curr = head;
+    Node* prev = nullptr;
+
+    while (curr != nullptr)
+    {
+        auto result = hashTable.insert(curr->value);
+        if (!result.second)
+        {
+            prev->next = curr->next;
+            delete curr;
+            curr = prev->next;
+        }
+        else
+        {
+            prev = curr;
+            curr = curr->next;
+        }       
+    }
 }
 
 } // singlylinkedlist
