@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 #include "singlyLinkedList.hh"
 
@@ -12,7 +13,7 @@ void SinglyLinkedList::insertAtBeginning(int value)
     head = newNode;
 }
 
-void SinglyLinkedList::append(int value)
+void SinglyLinkedList::insertAtEnd(int value)
 {
     if (head == nullptr)
     {
@@ -30,6 +31,11 @@ void SinglyLinkedList::append(int value)
 
 void SinglyLinkedList::insertAtIndex(int index, int value)
 {
+    if (index < 0) 
+    {
+        std::string msg("Negative index not allowed!");
+        throw msg;
+    }
     if (!index)
     {
         insertAtBeginning(value);
@@ -43,8 +49,8 @@ void SinglyLinkedList::insertAtIndex(int index, int value)
     {
         if (temp == nullptr)
         {
-            std::cout << "index too big!" << std::endl;
-            return;
+            std::string msg("Index too big!");
+            throw msg;
         }
         temp = temp->next;
         i++;
@@ -55,6 +61,11 @@ void SinglyLinkedList::insertAtIndex(int index, int value)
 
 void SinglyLinkedList::deleteAtIndex(int index)
 {
+    if (index < 0) 
+    {
+        std::string msg("Negative index not allowed!");
+        throw msg;
+    }
     if (!index)
     {
         Node* temp = head;
@@ -69,8 +80,8 @@ void SinglyLinkedList::deleteAtIndex(int index)
     {
         if (temp == nullptr)
         {
-            std::cout << "index too big!" << std::endl;
-            return;
+            std::string msg("Index too big!");
+            throw msg;
         }
         prev = temp;
         temp = temp->next; 
@@ -92,7 +103,7 @@ Node* SinglyLinkedList::searchValue(int value)
     return temp;
 }
 
-void SinglyLinkedList::traverseList()
+void SinglyLinkedList::printList()
 {
     std::cout << "LIST: " << std::endl; 
     Node* node = head;
@@ -101,6 +112,40 @@ void SinglyLinkedList::traverseList()
         std::cout << node->value << std::endl;
         node = node->next;
     }
+}
+
+int SinglyLinkedList::getValueAtIndex(int index)
+{
+    if (index < 0) 
+    {
+        std::string msg("Negative index not allowed!");
+        throw msg;
+    }
+    int i = 0;
+    Node* temp = head;
+    while (temp && i != index)
+    {
+        temp = temp->next;
+        i++;
+    }
+    if (temp == nullptr)
+    {
+        std::string msg("Value not found!");
+        throw msg;
+    }
+    return temp->value;
+}
+
+int SinglyLinkedList::getListSize()
+{
+    int size = 0;
+    Node *temp = head;
+    while (temp != nullptr)
+    {
+        temp = temp->next;
+        size++;
+    }    
+    return size;
 }
 
 } // singlylinkedlist

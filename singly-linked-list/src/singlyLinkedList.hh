@@ -18,8 +18,8 @@ class SinglyLinkedList
       // Inserts a node at the beginning of the list
       void insertAtBeginning(int value);
 
-      // Appends a node at the end of the list
-      void append(int value);
+      // Inserts a node at the end of the list
+      void insertAtEnd(int value);
 
       // Insert a node at the given index
       void insertAtIndex(int index, int value);
@@ -31,7 +31,13 @@ class SinglyLinkedList
       Node* searchValue(int value);
 
       // Travers a list and prints nodes' values
-      void traverseList();
+      void printList();
+
+      // Returns value of a node at index
+      int getValueAtIndex(int index);
+
+      //  Returns the size of the list
+      int getListSize();
 
     private:
       Node* head;
