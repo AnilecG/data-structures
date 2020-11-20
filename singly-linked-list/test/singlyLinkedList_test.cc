@@ -128,5 +128,19 @@ TEST_F(SinglyLinedListTest, removeDuplicates)
     ASSERT_EQ(sll.getListSize(), 3);    
 }
 
+TEST_F(SinglyLinedListTest, reverseList)
+{
+    sll.insertAtBeginning(4);
+    sll.insertAtBeginning(3);
+    sll.insertAtBeginning(2);
+    sll.insertAtBeginning(1);
+    ASSERT_EQ(sll.getListSize(), 4); 
+    sll.reverseList();
+    ASSERT_EQ(sll.getValueAtIndex(0), 4); 
+    ASSERT_EQ(sll.getValueAtIndex(1), 3);    
+    ASSERT_EQ(sll.getValueAtIndex(2), 2);    
+    ASSERT_EQ(sll.getValueAtIndex(3), 1);    
+}
+
 } //namespace
 } //singlyLinkedList

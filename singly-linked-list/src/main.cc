@@ -19,4 +19,12 @@ int main(int argc, char **argv)
     list.insertAtEnd(3);
 
     list.printList();
+
+    SinglyLinkedList list2;
+    list2.insertAtBeginning(3);
+    list2.insertAtBeginning(2);
+    list2.insertAtBeginning(1);
+    list2.printList();
+    list2.reverseList();
+    list2.printList();
 }

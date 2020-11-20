@@ -41,7 +41,11 @@ class SinglyLinkedList
 
       // Removes duplicated values
       void removeDuplicates();
-      
+
+      // Reverses the list
+      void reverseList();
+
+      bool isPalindrome();
     private:
       Node* head;
 };

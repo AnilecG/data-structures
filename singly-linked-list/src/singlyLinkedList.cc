@@ -172,4 +172,21 @@ void SinglyLinkedList::removeDuplicates()
     }
 }
 
+void SinglyLinkedList::reverseList()
+{
+    Node* prev = head;
+    Node* curr = head->next;
+    while (prev != nullptr && curr!= nullptr)
+    {
+        prev->next = curr->next;
+        curr->next = head;
+        head = curr;
+        curr = prev->next;
+    }
+}
+
+// bool SinglyLinkedList::isPalindrome()
+// {
+
+// }
 } // singlylinkedlist
