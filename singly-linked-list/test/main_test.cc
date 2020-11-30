@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "singlyLinkedList_Test.cc"
+#include "singlyLinkedList_test.cc"
 
 int main(int argc, char **argv)
 {
