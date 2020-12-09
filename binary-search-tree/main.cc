@@ -13,6 +13,8 @@ int main()
     bst.insertNode(3);
     bst.insertNode(16);
     bst.insertNode(9);
+    bst.insertNode(22);
+    bst.insertNode(24);
 
     cout << "In order " << endl;
     bst.printInOrder(bst.root);
@@ -28,21 +30,10 @@ int main()
     cout << "Max value: " << bst.maximumNode(bst.root)->value << endl;
     cout << "InOrderSuccessor: " << bst.inOrderSuccessor(bst.searchNode(10))->value << endl;
     cout << "InOrderPredecessor: " << bst.inOrderPredecessor(bst.searchNode(20))->value << endl;
-    
-    cout << "Remove 3 " << endl; 
-    bst.removeNode(bst.searchNode(3));
-    bst.printInOrder(bst.root);
-    bst.insertNode(3);
 
-    cout << "Remove 8 " << endl; 
-    bst.removeNode(bst.searchNode(8));
-    bst.printInOrder(bst.root);
- 
-    bst.insertNode(22);
-    bst.insertNode(24);
-    cout << "Remove 20 " << endl; 
+    cout << "Remove 20" << endl; 
     bst.removeNode(bst.searchNode(20));
     bst.printInOrder(bst.root);
- 
+
 }
 

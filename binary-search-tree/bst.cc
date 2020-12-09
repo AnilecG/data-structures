@@ -138,10 +138,9 @@ void BST::removeNode(Node* node)
     if (node->right != nullptr && node->left != nullptr)
     {
         auto successor = inOrderSuccessor(node);
-
         node->value = successor->value;
-
         removeNode(successor);
+        return;
     }
     // Case 3: one child
     Node* child = (node->left != nullptr) ? node->left : node->right;
